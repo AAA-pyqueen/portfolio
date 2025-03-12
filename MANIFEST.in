@@ -1,3 +1,0 @@
-include README.md
-recursive-include main/static *
-recursive-include main/templates *
