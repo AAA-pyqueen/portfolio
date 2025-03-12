@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ "/static/style.css" | relative_url }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ site.baseurl }}/home/">Home</a></li>
+                <li><a href="{{ site.baseurl }}/certifications/">Certifications</a></li>      
+                <li><a href="{{ site.baseurl }}/dashboards/">Dashboards</a></li>
+                <li><a href="{{ site.baseurl }}/writing/">Writing Samples</a></li>
+                <li><a href="{{ site.baseurl }}/coding/">Coding Project Gallery</a></li>
+                <li><a href="{{ site.baseurl }}/projects/">Ongoing Projects</a></li>
+                <li><a href="{{ site.baseurl }}/references/">References</a></li>
+                <li><a href="{{ site.baseurl }}/404.html/">404 Page</a></li>
+            </ul>
+            <form action="{{ "/search" | relative_url }}" method="get">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+    
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </footer>
+</body>
+</html>
