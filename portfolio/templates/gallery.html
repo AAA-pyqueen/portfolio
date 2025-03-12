@@ -1,0 +1,17 @@
+---
+layout: default
+title: Gallery
+---
+
+<section class="gallery">
+    <h1>Project Gallery</h1>
+    <div class="image-grid">
+        {% for image in site.static_files %}
+            {% if image.path contains 'assets/images/gallery' %}
+                <div class="image-item">
+                    <img src="{{ image.path | relative_url }}" alt="Project Image">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
