@@ -9,8 +9,8 @@ def certifications(request):
 def dashboards(request):
     return render(request, 'main/dashboards.html')
 
-def papers(request):
-    return render(request, 'main/papers.html')
+def writing(request):
+    return render(request, 'main/writing.html')
 
 def coding(request):
     return render(request, 'main/coding.html')
