@@ -1,0 +1,37 @@
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+header {
+    background-color: #f0f8ff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #f0f8ff;
+    padding: 10px;
+    text-align: center;
+}
+
+.social-media {
+    margin-top: 20px;
+}
