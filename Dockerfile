@@ -1,26 +1,26 @@
-# Use the official Node.js image as the base image
-FROM node:14
+# Use the official Python image as the base image
+FROM python:3.9-slim
 
-# Set the working directory in the container
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
-COPY package*.json ./
+# Install dependencies
+COPY requirements.txt /app/
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Install the dependencies
-RUN npm install
+# Copy the application code
+COPY . /app/
 
-# Copy the rest of the application code to the container
-COPY . .
+# Collect static files
+RUN python manage.py collectstatic --noinput
 
-# Build the React application
-RUN npm run build
-
-# Install a simple HTTP server to serve the static files
-RUN npm install -g serve
-
-# Expose port 3000 to the outside world
-EXPOSE 3000
+# Expose port 8000 to the outside world
+EXPOSE 8000
 
 # Command to run the application
-CMD ["serve", "-s", "build"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "portfolio.wsgi:application"]
